@@ -19,7 +19,7 @@ int main(int argc, char **argv)
   ros::NodeHandle nh;
   image_transport::ImageTransport it(nh);
   sub = it.subscribe("camera/depth_registered/image_raw", 1, imageCallback);
-  pub = it.advertise("camera/depth_registered/image_16", 1);
+  pub = it.advertise("repub/image_16", 1);
   ros::spin();
 
 }
