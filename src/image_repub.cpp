@@ -11,6 +11,19 @@ cv_bridge::CvImagePtr cv_depth_ptr;
 image_transport::Subscriber sub;
 image_transport::Publisher pub;
 
+
+
+int main(int argc, char **argv)
+{
+  ros::init(argc, argv, "repub");
+  ros::NodeHandle nh;
+  image_transport::ImageTransport it(nh);
+  sub = it.subscribe("camera/depth_registered/image_raw", 1, imageCallback);
+  pub = it.advertise("camera/depth_registered/image_16", 1);
+  ros::spin();
+
+}
+
 void imageCallback(const sensor_msgs::ImageConstPtr& depth_msg)
 {
   try
@@ -48,21 +61,10 @@ void imageCallback(const sensor_msgs::ImageConstPtr& depth_msg)
 
       pub.publish(cv_depth_ptr->toImageMsg());
 
-      printf("Published Image");
+      printf("Published Image\n");
     }
 
   }catch (cv_bridge::Exception& e){
     ROS_ERROR("Could not convert", depth_msg->encoding.c_str());
   }
-}
-
-int main(int argc, char **argv)
-{
-  ros::init(argc, argv, "repub");
-  ros::NodeHandle nh;
-  image_transport::ImageTransport it(nh);
-  sub = it.subscribe("camera/depth_registered/image_raw", 1, imageCallback);
-  pub = it.advertise("camera/depth_registered/image_16", 1);
-  ros::spin();
-
 }
