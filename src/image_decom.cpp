@@ -122,32 +122,31 @@ void DecompressRVL(char* input, short* output, int numPixels){
 
 
 void msgCallback(const image_repub::ByteMultiArray::ConstPtr& array){
-  	int i=0;
+  int i=0;
   
-  	for (std::vector<signed char>::const_iterator it = array->data.begin(); it !=array->data.end(); ++it){
-    	dataMat[i] = *it;
-    	i++;
-  	}
+  for (std::vector<signed char>::const_iterator it = array->data.begin(); it !=array->data.end(); ++it){
+    dataMat[i] = *it;
+    i++;
+  }
 
-  	DecompressRVL((char*)dataMat, (short*) output, 480*640);
+  DecompressRVL((char*)dataMat, (short*) output, 480*640);
 
   	
-  	cv::Mat image(480, 640, CV_16UC1, output);
+  cv::Mat image(480, 640, CV_16UC1, output);
 
+  cv_bridge::CvImagePtr cv_depth_ptr(new cv_bridge::CvImage);
 
-  	cv_bridge::CvImagePtr cv_depth_ptr(new cv_bridge::CvImage);
-
-  	ros::Time time = ros::Time::now();
+  ros::Time time = ros::Time::now();
 	
 	cv_depth_ptr->encoding = "16UC1";
-    cv_depth_ptr->header.stamp = time;
-    cv_depth_ptr->header.frame_id = "compressedData/image_raw";
+  cv_depth_ptr->header.stamp = time;
+  cv_depth_ptr->header.frame_id = "compressedData/image_raw";
 
-    cv_depth_ptr->image = image;
+  cv_depth_ptr->image = image;
 
-  	pub.publish(cv_depth_ptr->toImageMsg());
+  pub.publish(cv_depth_ptr->toImageMsg());
 
-  	ROS_INFO("published image_raw");
+  ROS_INFO("published image_raw");
   
 }
 
