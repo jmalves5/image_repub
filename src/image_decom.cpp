@@ -134,27 +134,15 @@ void msgCallback(const image_repub::ByteMultiArray::ConstPtr& array){
   	
   cv::Mat image(480, 640, CV_16UC1, output);
 
-  cv::Mat convertedDepthImg(480, 640, CV_32FC1);
-
-
-  #pragma omp parallel for
-  for (int v = 0; v < 480; ++v)
-  {
-      for (int u = 0; u < 640; ++u)
-      {
-          convertedDepthImg.at<float>(v, u)= depth_image_proc::DepthTraits<float>::toMeters(image.at<uint16_t>(v, u));
-      }
-  }
-
   cv_bridge::CvImagePtr cv_depth_ptr(new cv_bridge::CvImage);
 
   ros::Time time = ros::Time::now();
 	
-	cv_depth_ptr->encoding = "32FC1";
+	cv_depth_ptr->encoding = "16UC1";
   cv_depth_ptr->header.stamp = time;
   cv_depth_ptr->header.frame_id = "compressedData/image_raw";
 
-  cv_depth_ptr->image = convertedDepthImg;
+  cv_depth_ptr->image = image;
 
   pub.publish(cv_depth_ptr->toImageMsg());
 
