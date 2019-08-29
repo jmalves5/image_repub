@@ -1,2 +1,2 @@
 # image_repub
-Republish 32FC1 encoding images to 16UC1 in ROS
+ROS package that uses 16 bit compression to allow 32 bit compressed images transfer (loss of information occurs).
