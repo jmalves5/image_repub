@@ -20,9 +20,10 @@ int *buffer, *pBuffer, word, nibblesWritten;
 char* output;
 short* dataMat;
 
- cv_bridge::CvImagePtr cv_depth_ptr;
+cv_bridge::CvImagePtr cv_depth_ptr;
 
-
+#define V 640
+#define U 480
 
 
 void EncodeVLE(int value)
@@ -103,12 +104,6 @@ void imageCallback(const sensor_msgs::ImageConstPtr& depth_msg)
 
   ROS_INFO("copied image");
 
-
-
-  const int V = cv_depth_ptr->image.size().height;
-    
-  const int U = cv_depth_ptr->image.size().width;
-
   /*COMPRESS*/
  
 
@@ -145,8 +140,8 @@ int main(int argc, char **argv)
   
   ros::init(argc, argv, "repub_compress");
   ros::NodeHandle nh;
-  output=(char*)malloc(480*640*sizeof(short));
-  dataMat = (short*)malloc(480*640*sizeof(short));
+  output=(char*)malloc(V*U*sizeof(short));
+  dataMat = (short*)malloc(V*U*sizeof(short));
   image_transport::ImageTransport it(nh);
   sub = it.subscribe("camera/depth_registered/image_raw", 1, imageCallback);
   pubcompressed = nh.advertise<image_repub::ByteMultiArray>("arrayCompressed", 10);

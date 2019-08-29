@@ -20,6 +20,8 @@ int *buffer, *pBuffer, word, nibblesWritten;
 short* output;
 char* dataMat;
 
+#define V 640
+#define U 480
 
 void EncodeVLE(int value)
 {
@@ -129,14 +131,14 @@ void msgCallback(const image_repub::ByteMultiArray::ConstPtr& array){
     i++;
   }
 
-  DecompressRVL((char*)dataMat, (short*) output, 480*640);
+  DecompressRVL((char*)dataMat, (short*) output, V*U);
   	
-  cv::Mat image(480, 640, CV_32FC1);
+  cv::Mat image(V, U, CV_32FC1);
 
   #pragma omp parallel for
-  for (int v = 0; v < 480; ++v){
-      for (int u = 0; u < 640; ++u){
-        image.at<float>(v, u) = depth_image_proc::DepthTraits<uint16_t>::toMeters(output[v*640+u]);
+  for (int v = 0; v < V; ++v){
+      for (int u = 0; u < V; ++u){
+        image.at<float>(v, u) = depth_image_proc::DepthTraits<uint16_t>::toMeters(output[v*U+u]);
       }
   }
 
@@ -161,8 +163,8 @@ int main(int argc, char **argv)
   
   ros::init(argc, argv, "repub_decompress");
   ros::NodeHandle nh;
-  output=(short*)malloc(480*640*sizeof(short));
-  dataMat = (char*)malloc(480*640*sizeof(short));
+  output=(short*)malloc(V*U*sizeof(short));
+  dataMat = (char*)malloc(V*U*sizeof(short));
   image_transport::ImageTransport it(nh);
   subcompressed = nh.subscribe("arrayCompressed", 1, msgCallback);
   pub = it.advertise("compressedData/image_raw", 10);
