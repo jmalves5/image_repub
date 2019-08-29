@@ -99,7 +99,7 @@ int CompressRVL(short* input, char* output, int numPixels){
 void imageCallback(const sensor_msgs::ImageConstPtr& depth_msg)
 {
  
-  cv_depth_ptr = cv_bridge::toCvCopy(depth_msg, sensor_msgs::image_encodings::TYPE_16UC1);
+  cv_depth_ptr = cv_bridge::toCvCopy(depth_msg, sensor_msgs::image_encodings::TYPE_32FC1);
 
   ROS_INFO("copied image");
 
@@ -110,15 +110,16 @@ void imageCallback(const sensor_msgs::ImageConstPtr& depth_msg)
   const int U = cv_depth_ptr->image.size().width;
 
   /*COMPRESS*/
+ 
 
-  #pragma omp parallel for
-  for (int i = 0; i < V; i++)
-  {
-    for (int k = 0; k < U; k++)
-    {
-      dataMat[i*U+k]=cv_depth_ptr->image.at<uint16_t>(i, k);
+  //cv::Mat mat_out_16S = cv::Mat(cv_depth_ptr->image.size(), cv_depth_ptr->image.type(), dataMat);
+
+  for (int i = 0; i < V; i++){
+    for (int k = 0; k < U; k++){
+      dataMat[i*U+k] = depth_image_proc::DepthTraits<uint16_t>::fromMeters(cv_depth_ptr->image.at<float>(i, k));
     }
   }
+
 
   int n = CompressRVL(dataMat, output, V*U);
   
