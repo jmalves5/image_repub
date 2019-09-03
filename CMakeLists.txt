@@ -9,7 +9,6 @@ std_msgs
 genmsg 
 image_transport 
 cv_bridge
-OpenCV
 message_generation
 genmsg)
 
