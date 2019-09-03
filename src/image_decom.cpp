@@ -138,7 +138,7 @@ void msgCallback(const image_repub::ByteMultiArray::ConstPtr& array){
   #pragma omp parallel for
   for (int v = 0; v < V; ++v){
       for (int u = 0; u < V; ++u){
-        image.at<float>(v, u) = depth_image_proc::DepthTraits<uint16_t>::toMeters(output[v*U+u]);
+        image.at<float>(v, u) = 0.001f*output[v*U+u];
       }
   }
 

@@ -111,7 +111,7 @@ void imageCallback(const sensor_msgs::ImageConstPtr& depth_msg)
 
   for (int i = 0; i < V; i++){
     for (int k = 0; k < U; k++){
-      dataMat[i*U+k] = depth_image_proc::DepthTraits<uint16_t>::fromMeters(cv_depth_ptr->image.at<float>(i, k));
+      dataMat[i*U+k] = 0.5f + (cv_depth_ptr->image.at<float>(i, k) * 1000.0f);
     }
   }
 
