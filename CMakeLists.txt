@@ -10,7 +10,6 @@ genmsg
 image_transport 
 depth_image_proc
 cv_bridge
-OpenCV
 message_generation
 genmsg)
 
