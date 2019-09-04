@@ -20,8 +20,8 @@ int *buffer, *pBuffer, word, nibblesWritten;
 short* output;
 char* dataMat;
 
-#define V 640
-#define U 480
+int V = 480;
+int U = 640;
 
 void EncodeVLE(int value)
 {
@@ -135,10 +135,9 @@ void msgCallback(const image_repub::ByteMultiArray::ConstPtr& array){
   	
   cv::Mat image(V, U, CV_32FC1);
 
-  #pragma omp parallel for
-  for (int v = 0; v < V; ++v){
-      for (int u = 0; u < V; ++u){
-        image.at<float>(v, u) = 0.001f*output[v*U+u];
+  for (int i = 0; i < V; ++i){
+      for (int k = 0; k < U; ++k){
+        image.at<float>(i, k) = depth_image_proc::DepthTraits<uint16_t>::toMeters(output[i*U+k]);
       }
   }
 

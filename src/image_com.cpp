@@ -22,8 +22,8 @@ short* dataMat;
 
 cv_bridge::CvImagePtr cv_depth_ptr;
 
-#define V 640
-#define U 480
+int V = 480;
+int U = 640;
 
 
 void EncodeVLE(int value)
@@ -102,16 +102,11 @@ void imageCallback(const sensor_msgs::ImageConstPtr& depth_msg)
  
   cv_depth_ptr = cv_bridge::toCvCopy(depth_msg, sensor_msgs::image_encodings::TYPE_32FC1);
 
-  ROS_INFO("copied image");
-
   /*COMPRESS*/
- 
-
-  //cv::Mat mat_out_16S = cv::Mat(cv_depth_ptr->image.size(), cv_depth_ptr->image.type(), dataMat);
 
   for (int i = 0; i < V; i++){
     for (int k = 0; k < U; k++){
-      dataMat[i*U+k] = 0.5f + (cv_depth_ptr->image.at<float>(i, k) * 1000.0f);
+       dataMat[i*U+k] = depth_image_proc::DepthTraits<uint16_t>::fromMeters(cv_depth_ptr->image.at<float>(i, k));
     }
   }
 
@@ -148,6 +143,7 @@ int main(int argc, char **argv)
   ros::spin();
   free(output);
   free(dataMat);
+  return 0;
 }
 
 

@@ -69,5 +69,6 @@ add_executable(compress src/image_com.cpp)
 add_executable(decompress src/image_decom.cpp)
 target_link_libraries(compress ${catkin_LIBRARIES})
 target_link_libraries(decompress ${catkin_LIBRARIES})
-add_dependencies(compress cv_bridge)
-add_dependencies(decompress cv_bridge)
+add_dependencies(compress cv_bridge depth_image_proc)
+add_dependencies(decompress cv_bridge depth_image_proc)
+
