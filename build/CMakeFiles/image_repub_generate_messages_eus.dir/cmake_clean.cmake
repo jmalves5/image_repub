@@ -1,0 +1,42 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/image_repub_generate_messages_eus"
+  "devel/share/roseus/ros/image_repub/msg/Float32MultiArray.l"
+  "devel/share/roseus/ros/image_repub/msg/Int32MultiArray.l"
+  "devel/share/roseus/ros/image_repub/msg/UInt64MultiArray.l"
+  "devel/share/roseus/ros/image_repub/msg/ByteMultiArray.l"
+  "devel/share/roseus/ros/image_repub/msg/Header.l"
+  "devel/share/roseus/ros/image_repub/msg/String.l"
+  "devel/share/roseus/ros/image_repub/msg/MultiArrayLayout.l"
+  "devel/share/roseus/ros/image_repub/msg/Int16.l"
+  "devel/share/roseus/ros/image_repub/msg/UInt8MultiArray.l"
+  "devel/share/roseus/ros/image_repub/msg/Int16MultiArray.l"
+  "devel/share/roseus/ros/image_repub/msg/UInt16.l"
+  "devel/share/roseus/ros/image_repub/msg/Char.l"
+  "devel/share/roseus/ros/image_repub/msg/Int8.l"
+  "devel/share/roseus/ros/image_repub/msg/Duration.l"
+  "devel/share/roseus/ros/image_repub/msg/MultiArrayDimension.l"
+  "devel/share/roseus/ros/image_repub/msg/UInt64.l"
+  "devel/share/roseus/ros/image_repub/msg/Bool.l"
+  "devel/share/roseus/ros/image_repub/msg/Int8MultiArray.l"
+  "devel/share/roseus/ros/image_repub/msg/UInt16MultiArray.l"
+  "devel/share/roseus/ros/image_repub/msg/Float32.l"
+  "devel/share/roseus/ros/image_repub/msg/Int64MultiArray.l"
+  "devel/share/roseus/ros/image_repub/msg/Empty.l"
+  "devel/share/roseus/ros/image_repub/msg/UInt32MultiArray.l"
+  "devel/share/roseus/ros/image_repub/msg/Float64.l"
+  "devel/share/roseus/ros/image_repub/msg/Int32.l"
+  "devel/share/roseus/ros/image_repub/msg/UInt8.l"
+  "devel/share/roseus/ros/image_repub/msg/Int64.l"
+  "devel/share/roseus/ros/image_repub/msg/Byte.l"
+  "devel/share/roseus/ros/image_repub/msg/CharArray.l"
+  "devel/share/roseus/ros/image_repub/msg/Time.l"
+  "devel/share/roseus/ros/image_repub/msg/Float64MultiArray.l"
+  "devel/share/roseus/ros/image_repub/msg/ColorRGBA.l"
+  "devel/share/roseus/ros/image_repub/msg/UInt32.l"
+  "devel/share/roseus/ros/image_repub/manifest.l"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang )
+  include(CMakeFiles/image_repub_generate_messages_eus.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

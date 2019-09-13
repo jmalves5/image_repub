@@ -1,0 +1,41 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/image_repub_generate_messages_nodejs"
+  "devel/share/gennodejs/ros/image_repub/msg/Float32MultiArray.js"
+  "devel/share/gennodejs/ros/image_repub/msg/Int32MultiArray.js"
+  "devel/share/gennodejs/ros/image_repub/msg/UInt64MultiArray.js"
+  "devel/share/gennodejs/ros/image_repub/msg/ByteMultiArray.js"
+  "devel/share/gennodejs/ros/image_repub/msg/Header.js"
+  "devel/share/gennodejs/ros/image_repub/msg/String.js"
+  "devel/share/gennodejs/ros/image_repub/msg/MultiArrayLayout.js"
+  "devel/share/gennodejs/ros/image_repub/msg/Int16.js"
+  "devel/share/gennodejs/ros/image_repub/msg/UInt8MultiArray.js"
+  "devel/share/gennodejs/ros/image_repub/msg/Int16MultiArray.js"
+  "devel/share/gennodejs/ros/image_repub/msg/UInt16.js"
+  "devel/share/gennodejs/ros/image_repub/msg/Char.js"
+  "devel/share/gennodejs/ros/image_repub/msg/Int8.js"
+  "devel/share/gennodejs/ros/image_repub/msg/Duration.js"
+  "devel/share/gennodejs/ros/image_repub/msg/MultiArrayDimension.js"
+  "devel/share/gennodejs/ros/image_repub/msg/UInt64.js"
+  "devel/share/gennodejs/ros/image_repub/msg/Bool.js"
+  "devel/share/gennodejs/ros/image_repub/msg/Int8MultiArray.js"
+  "devel/share/gennodejs/ros/image_repub/msg/UInt16MultiArray.js"
+  "devel/share/gennodejs/ros/image_repub/msg/Float32.js"
+  "devel/share/gennodejs/ros/image_repub/msg/Int64MultiArray.js"
+  "devel/share/gennodejs/ros/image_repub/msg/Empty.js"
+  "devel/share/gennodejs/ros/image_repub/msg/UInt32MultiArray.js"
+  "devel/share/gennodejs/ros/image_repub/msg/Float64.js"
+  "devel/share/gennodejs/ros/image_repub/msg/Int32.js"
+  "devel/share/gennodejs/ros/image_repub/msg/UInt8.js"
+  "devel/share/gennodejs/ros/image_repub/msg/Int64.js"
+  "devel/share/gennodejs/ros/image_repub/msg/Byte.js"
+  "devel/share/gennodejs/ros/image_repub/msg/CharArray.js"
+  "devel/share/gennodejs/ros/image_repub/msg/Time.js"
+  "devel/share/gennodejs/ros/image_repub/msg/Float64MultiArray.js"
+  "devel/share/gennodejs/ros/image_repub/msg/ColorRGBA.js"
+  "devel/share/gennodejs/ros/image_repub/msg/UInt32.js"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang )
+  include(CMakeFiles/image_repub_generate_messages_nodejs.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

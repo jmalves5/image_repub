@@ -1,0 +1,42 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/image_repub_generate_messages_py"
+  "devel/lib/python2.7/dist-packages/image_repub/msg/_Float32MultiArray.py"
+  "devel/lib/python2.7/dist-packages/image_repub/msg/_Int32MultiArray.py"
+  "devel/lib/python2.7/dist-packages/image_repub/msg/_UInt64MultiArray.py"
+  "devel/lib/python2.7/dist-packages/image_repub/msg/_ByteMultiArray.py"
+  "devel/lib/python2.7/dist-packages/image_repub/msg/_Header.py"
+  "devel/lib/python2.7/dist-packages/image_repub/msg/_String.py"
+  "devel/lib/python2.7/dist-packages/image_repub/msg/_MultiArrayLayout.py"
+  "devel/lib/python2.7/dist-packages/image_repub/msg/_Int16.py"
+  "devel/lib/python2.7/dist-packages/image_repub/msg/_UInt8MultiArray.py"
+  "devel/lib/python2.7/dist-packages/image_repub/msg/_Int16MultiArray.py"
+  "devel/lib/python2.7/dist-packages/image_repub/msg/_UInt16.py"
+  "devel/lib/python2.7/dist-packages/image_repub/msg/_Char.py"
+  "devel/lib/python2.7/dist-packages/image_repub/msg/_Int8.py"
+  "devel/lib/python2.7/dist-packages/image_repub/msg/_Duration.py"
+  "devel/lib/python2.7/dist-packages/image_repub/msg/_MultiArrayDimension.py"
+  "devel/lib/python2.7/dist-packages/image_repub/msg/_UInt64.py"
+  "devel/lib/python2.7/dist-packages/image_repub/msg/_Bool.py"
+  "devel/lib/python2.7/dist-packages/image_repub/msg/_Int8MultiArray.py"
+  "devel/lib/python2.7/dist-packages/image_repub/msg/_UInt16MultiArray.py"
+  "devel/lib/python2.7/dist-packages/image_repub/msg/_Float32.py"
+  "devel/lib/python2.7/dist-packages/image_repub/msg/_Int64MultiArray.py"
+  "devel/lib/python2.7/dist-packages/image_repub/msg/_Empty.py"
+  "devel/lib/python2.7/dist-packages/image_repub/msg/_UInt32MultiArray.py"
+  "devel/lib/python2.7/dist-packages/image_repub/msg/_Float64.py"
+  "devel/lib/python2.7/dist-packages/image_repub/msg/_Int32.py"
+  "devel/lib/python2.7/dist-packages/image_repub/msg/_UInt8.py"
+  "devel/lib/python2.7/dist-packages/image_repub/msg/_Int64.py"
+  "devel/lib/python2.7/dist-packages/image_repub/msg/_Byte.py"
+  "devel/lib/python2.7/dist-packages/image_repub/msg/_CharArray.py"
+  "devel/lib/python2.7/dist-packages/image_repub/msg/_Time.py"
+  "devel/lib/python2.7/dist-packages/image_repub/msg/_Float64MultiArray.py"
+  "devel/lib/python2.7/dist-packages/image_repub/msg/_ColorRGBA.py"
+  "devel/lib/python2.7/dist-packages/image_repub/msg/_UInt32.py"
+  "devel/lib/python2.7/dist-packages/image_repub/msg/__init__.py"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang )
+  include(CMakeFiles/image_repub_generate_messages_py.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

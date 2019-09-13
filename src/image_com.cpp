@@ -102,7 +102,7 @@ void imageCallback(const sensor_msgs::ImageConstPtr& depth_msg)
  
   cv_depth_ptr = cv_bridge::toCvCopy(depth_msg, sensor_msgs::image_encodings::TYPE_32FC1);
 
-  if ("TYPE_32FC1" == depth_msg->encoding)
+  if ("32FC1" == depth_msg->encoding)
   {
 
   /*COMPRESS*/
@@ -112,7 +112,7 @@ void imageCallback(const sensor_msgs::ImageConstPtr& depth_msg)
         dataMat[i*U+k] = depth_image_proc::DepthTraits<uint16_t>::fromMeters(cv_depth_ptr->image.at<float>(i, k));
       }
     }
-  }else if ("TYPE_16UC1" == depth_msg->encoding){
+  }else if ("16UC1" == depth_msg->encoding){
 
     for (int i = 0; i < V; i++){
       for (int k = 0; k < U; k++){

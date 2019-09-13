@@ -1,0 +1,41 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/image_repub_generate_messages_lisp"
+  "devel/share/common-lisp/ros/image_repub/msg/Float32MultiArray.lisp"
+  "devel/share/common-lisp/ros/image_repub/msg/Int32MultiArray.lisp"
+  "devel/share/common-lisp/ros/image_repub/msg/UInt64MultiArray.lisp"
+  "devel/share/common-lisp/ros/image_repub/msg/ByteMultiArray.lisp"
+  "devel/share/common-lisp/ros/image_repub/msg/Header.lisp"
+  "devel/share/common-lisp/ros/image_repub/msg/String.lisp"
+  "devel/share/common-lisp/ros/image_repub/msg/MultiArrayLayout.lisp"
+  "devel/share/common-lisp/ros/image_repub/msg/Int16.lisp"
+  "devel/share/common-lisp/ros/image_repub/msg/UInt8MultiArray.lisp"
+  "devel/share/common-lisp/ros/image_repub/msg/Int16MultiArray.lisp"
+  "devel/share/common-lisp/ros/image_repub/msg/UInt16.lisp"
+  "devel/share/common-lisp/ros/image_repub/msg/Char.lisp"
+  "devel/share/common-lisp/ros/image_repub/msg/Int8.lisp"
+  "devel/share/common-lisp/ros/image_repub/msg/Duration.lisp"
+  "devel/share/common-lisp/ros/image_repub/msg/MultiArrayDimension.lisp"
+  "devel/share/common-lisp/ros/image_repub/msg/UInt64.lisp"
+  "devel/share/common-lisp/ros/image_repub/msg/Bool.lisp"
+  "devel/share/common-lisp/ros/image_repub/msg/Int8MultiArray.lisp"
+  "devel/share/common-lisp/ros/image_repub/msg/UInt16MultiArray.lisp"
+  "devel/share/common-lisp/ros/image_repub/msg/Float32.lisp"
+  "devel/share/common-lisp/ros/image_repub/msg/Int64MultiArray.lisp"
+  "devel/share/common-lisp/ros/image_repub/msg/Empty.lisp"
+  "devel/share/common-lisp/ros/image_repub/msg/UInt32MultiArray.lisp"
+  "devel/share/common-lisp/ros/image_repub/msg/Float64.lisp"
+  "devel/share/common-lisp/ros/image_repub/msg/Int32.lisp"
+  "devel/share/common-lisp/ros/image_repub/msg/UInt8.lisp"
+  "devel/share/common-lisp/ros/image_repub/msg/Int64.lisp"
+  "devel/share/common-lisp/ros/image_repub/msg/Byte.lisp"
+  "devel/share/common-lisp/ros/image_repub/msg/CharArray.lisp"
+  "devel/share/common-lisp/ros/image_repub/msg/Time.lisp"
+  "devel/share/common-lisp/ros/image_repub/msg/Float64MultiArray.lisp"
+  "devel/share/common-lisp/ros/image_repub/msg/ColorRGBA.lisp"
+  "devel/share/common-lisp/ros/image_repub/msg/UInt32.lisp"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang )
+  include(CMakeFiles/image_repub_generate_messages_lisp.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()
