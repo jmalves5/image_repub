@@ -104,9 +104,6 @@ void imageCallback(const sensor_msgs::ImageConstPtr& depth_msg)
 
   if ("32FC1" == depth_msg->encoding)
   {
-
-  /*COMPRESS*/
-
     for (int i = 0; i < V; i++){
       for (int k = 0; k < U; k++){
         dataMat[i*U+k] = depth_image_proc::DepthTraits<uint16_t>::fromMeters(cv_depth_ptr->image.at<float>(i, k));
@@ -121,7 +118,7 @@ void imageCallback(const sensor_msgs::ImageConstPtr& depth_msg)
     }
 
   }else{
-    ROS_INFO("Encoding not supported must be 32FC1 or 16UC1");
+    ROS_INFO("Encoding not supported, must be 32FC1 or 16UC1");
   }
 
   int n = CompressRVL(dataMat, output, V*U);
@@ -148,8 +145,8 @@ int main(int argc, char **argv)
   output=(char*)malloc(V*U*sizeof(short));
   dataMat = (short*)malloc(V*U*sizeof(short));
   image_transport::ImageTransport it(nh);
-  sub = it.subscribe("camera/depth/image", 1, imageCallback);
-  pubcompressed = nh.advertise<image_repub::ByteMultiArray>("arrayCompressed", 10);
+  sub = it.subscribe("/camera/depth/image", 1, imageCallback);
+  pubcompressed = nh.advertise<image_repub::ByteMultiArray>("/arrayCompressed", 10);
   ros::spin();
   free(output);
   free(dataMat);
