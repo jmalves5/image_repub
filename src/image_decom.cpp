@@ -137,7 +137,7 @@ void msgCallback(const image_repub::ByteMultiArray::ConstPtr& array){
 
   for (int i = 0; i < V; ++i){
       for (int k = 0; k < U; ++k){
-        image.at<float>(i, k) = depth_image_proc::DepthTraits<uint16_t>::toMeters(output[i*U+k]);
+        image.at<float>(i, k) = depth_image_proc::DepthTraits<float>::toMeters(output[i*U+k]);
       }
   }
 
@@ -145,7 +145,7 @@ void msgCallback(const image_repub::ByteMultiArray::ConstPtr& array){
 
   ros::Time time = ros::Time::now();
 	
-	cv_depth_ptr->encoding = "32FC1";
+	cv_depth_ptr->encoding = "16UC1";
   cv_depth_ptr->header.stamp = time;
   cv_depth_ptr->header.frame_id = "/compressedData/image_raw";
 

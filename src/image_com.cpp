@@ -109,13 +109,6 @@ void imageCallback(const sensor_msgs::ImageConstPtr& depth_msg)
         dataMat[i*U+k] = depth_image_proc::DepthTraits<uint16_t>::fromMeters(cv_depth_ptr->image.at<float>(i, k));
       }
     }
-  }else if ("16UC1" == depth_msg->encoding){
-
-    for (int i = 0; i < V; i++){
-      for (int k = 0; k < U; k++){
-        dataMat[i*U+k] = cv_depth_ptr->image.at<float>(i, k);
-      }
-    }
 
   }else{
     ROS_INFO("Encoding not supported, must be 32FC1 or 16UC1");
