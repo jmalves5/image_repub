@@ -50,6 +50,7 @@ add_message_files(
 	UInt64MultiArray.msg
 	UInt8.msg
 	UInt8MultiArray.msg
+	RVLData.msg
 )
 
 

@@ -3,7 +3,9 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <cv_bridge/cv_bridge.h>
 #include <depth_image_proc/depth_traits.h>
+#include <image_repub/RVLData.h>
 #include <image_repub/ByteMultiArray.h>
+
 
 
 
@@ -123,10 +125,10 @@ void DecompressRVL(char* input, short* output, int numPixels){
 
 
 
-void msgCallback(const image_repub::ByteMultiArray::ConstPtr& array){
+void msgCallback(const image_repub::RVLData::ConstPtr& array){
   int i=0;
   
-  for (std::vector<signed char>::const_iterator it = array->data.begin(); it !=array->data.end(); ++it){
+  for (std::vector<signed char>::const_iterator it = array->bytemultiarray.data.begin(); it !=array->bytemultiarray.data.end(); ++it){
     dataMat[i] = *it;
     i++;
   }
@@ -138,6 +140,7 @@ void msgCallback(const image_repub::ByteMultiArray::ConstPtr& array){
   for (int i = 0; i < V; ++i){
       for (int k = 0; k < U; ++k){
         image.at<float>(i, k) = depth_image_proc::DepthTraits<float>::toMeters(output[i*U+k])/1000;
+
       }
   }
 
@@ -146,8 +149,8 @@ void msgCallback(const image_repub::ByteMultiArray::ConstPtr& array){
   ros::Time time = ros::Time::now();
 	
 	cv_depth_ptr->encoding = "32FC1";
-  cv_depth_ptr->header.stamp = time;
-  cv_depth_ptr->header.frame_id = "/compressedData";
+  cv_depth_ptr->header = array->header;
+
 
   cv_depth_ptr->image = image;
 

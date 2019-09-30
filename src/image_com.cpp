@@ -5,7 +5,7 @@
 #include <cv_bridge/cv_bridge.h>
 #include <iostream>
 #include <depth_image_proc/depth_traits.h>
-#include <image_repub/ByteMultiArray.h>
+#include <image_repub/RVLData.h>
 
 
 
@@ -116,15 +116,18 @@ void imageCallback(const sensor_msgs::ImageConstPtr& depth_msg)
 
   int n = CompressRVL(dataMat, output, V*U);
  
-  image_repub::ByteMultiArray array;
-  array.data.clear();
+  image_repub::RVLData RVLmessage;
+
+  RVLmessage.header=depth_msg->header;
+
+  RVLmessage.bytemultiarray.data.clear();
 
   for (int i = 0; i < n; i++)
   {
-    array.data.push_back(output[i]);
+    RVLmessage.bytemultiarray.data.push_back(output[i]);
   }
 
-  pubcompressed.publish(array);
+  pubcompressed.publish(RVLmessage);
 
   ROS_INFO("published");
   
