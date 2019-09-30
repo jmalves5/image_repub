@@ -138,6 +138,7 @@ void msgCallback(const image_repub::ByteMultiArray::ConstPtr& array){
   for (int i = 0; i < V; ++i){
       for (int k = 0; k < U; ++k){
         image.at<float>(i, k) = depth_image_proc::DepthTraits<float>::toMeters(output[i*U+k]);
+        printf(image.at<float>(i, k));
       }
   }
 
@@ -145,9 +146,9 @@ void msgCallback(const image_repub::ByteMultiArray::ConstPtr& array){
 
   ros::Time time = ros::Time::now();
 	
-	cv_depth_ptr->encoding = "16UC1";
+	cv_depth_ptr->encoding = "32FC1";
   cv_depth_ptr->header.stamp = time;
-  cv_depth_ptr->header.frame_id = "/compressedData/image_raw";
+  cv_depth_ptr->header.frame_id = "/compressedData";
 
   cv_depth_ptr->image = image;
 
@@ -166,7 +167,7 @@ int main(int argc, char **argv)
   dataMat = (char*)malloc(V*U*sizeof(short));
   image_transport::ImageTransport it(nh);
   subcompressed = nh.subscribe("/arrayCompressed", 1, msgCallback);
-  pub = it.advertise("/compressedData/image_raw", 10);
+  pub = it.advertise("/compressedData", 10);
   ros::spin();
   free(output);
   free(dataMat);
