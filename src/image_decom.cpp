@@ -138,7 +138,7 @@ void msgCallback(const image_repub::ByteMultiArray::ConstPtr& array){
   for (int i = 0; i < V; ++i){
       for (int k = 0; k < U; ++k){
         image.at<float>(i, k) = depth_image_proc::DepthTraits<float>::toMeters(output[i*U+k]);
-        printf("%d\n", image.at<float>(i, k));
+        printf("%f\n", image.at<float>(i, k));
       }
   }
 
