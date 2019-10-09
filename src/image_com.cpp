@@ -141,7 +141,7 @@ int main(int argc, char **argv)
   output=(char*)malloc(V*U*sizeof(short));
   dataMat = (short*)malloc(V*U*sizeof(short));
   image_transport::ImageTransport it(nh);
-  sub = it.subscribe("/camera/depth/image", 1, imageCallback);
+  sub = it.subscribe("/camera/depth_registered/sw_registered/image_rect", 1, imageCallback);
   pubcompressed = nh.advertise<image_repub::RVLData>("/arrayCompressed", 10);
   ros::spin();
   free(output);
