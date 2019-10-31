@@ -3,7 +3,7 @@ ROS package that implements the 16-bit depth image compression algorithm, RVL (W
 
 It allows for use of 16-bit and 32-bit depth images, altough, in the latter case, input images are converted to 16-bit before being compressed (loss of information occurs).
 
-To use, just clone the repo, solve dependencies, and build with catkin_make.
+To build, just clone the repo, solve dependencies, and build with catkin_make.
 
 Use image_com executable to subscribe and compress images and the image_decom to decompress and publish them to ROS.
 
