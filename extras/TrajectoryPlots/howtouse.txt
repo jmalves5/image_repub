@@ -1,0 +1,1 @@
+python evaluate_ate.py path_to_groundtruth_trajectory.txt path_to_estimated_trajectory.txt --plot figure_name.png --offset 0 --scale 1 --verbose
