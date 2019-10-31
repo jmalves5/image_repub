@@ -1,7 +1,7 @@
 # image_repub
 ROS package that implements the 16-bit depth image compression algorithm, RVL (Wilson, Andrew. (2017). Fast Lossless Depth Image Compression. 100-105. 10.1145/3132272.3134144. ). 
 
-It allows for use of 16-bit and 32-bit depth images, altohu, in the latter case, inpu images are converted to 16-bit before being compressed (loss of information occurs).
+It allows for use of 16-bit and 32-bit depth images, altough, in the latter case, input images are converted to 16-bit before being compressed (loss of information occurs).
 
 To use, just clone the repo, solve dependencies, and build with catkin_make.
 
